@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/Github/MLflow-Projects/MLFlow%20Project/mlruns/866608606363253306/77f69748cb9542cc9beb40d0817d701b/artifacts
+end_time: 1734640415340
+entry_point_name: ''
+experiment_id: '866608606363253306'
+lifecycle_stage: active
+run_id: 77f69748cb9542cc9beb40d0817d701b
+run_name: classy-sponge-629
+run_uuid: 77f69748cb9542cc9beb40d0817d701b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1734640402513
+status: 3
+tags: []
+user_id: Ahmed Ashraf

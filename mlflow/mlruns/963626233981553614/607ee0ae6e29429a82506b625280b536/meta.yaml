@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/Github/MLflow-Projects/mlflow/testing_mlflow1_artifacts/607ee0ae6e29429a82506b625280b536/artifacts
+end_time: 1734554268258
+entry_point_name: ''
+experiment_id: '963626233981553614'
+lifecycle_stage: active
+run_id: 607ee0ae6e29429a82506b625280b536
+run_name: testing
+run_uuid: 607ee0ae6e29429a82506b625280b536
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1734554268211
+status: 3
+tags: []
+user_id: Ahmed Ashraf

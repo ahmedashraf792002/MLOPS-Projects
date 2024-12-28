@@ -1,0 +1,20 @@
+artifact_path: XGBClassifier/with-SMOTE
+flavors:
+  python_function:
+    data: model.xgb
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.xgboost
+    python_version: 3.11.7
+  xgboost:
+    code: null
+    data: model.xgb
+    model_class: xgboost.sklearn.XGBClassifier
+    model_format: xgb
+    xgb_version: 2.1.1
+mlflow_version: 2.18.0
+model_size_bytes: 4298498
+model_uuid: 3c0c1bff51aa488d93d0149f10001650
+run_id: 9af607edf7084acbb367af82cc8e2281
+utc_time_created: '2024-12-19 20:39:32.658029'

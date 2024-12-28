@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1734641082153
+current_stage: Staging
+description: ''
+last_updated_timestamp: 1734643215814
+name: forest_best
+run_id: 4f869e7da439479eae4d892f3b10e672
+run_link: ''
+source: file:///D:/Github/MLflow-Projects/MLFlow%20Project/mlruns/866608606363253306/4f869e7da439479eae4d892f3b10e672/artifacts/RandomForestClassifier/with-SMOTE
+status: READY
+status_message: null
+storage_location: file:///D:/Github/MLflow-Projects/MLFlow%20Project/mlruns/866608606363253306/4f869e7da439479eae4d892f3b10e672/artifacts/RandomForestClassifier/with-SMOTE
+user_id: null
+version: 3

@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/Github/MLflow-Projects/MLFlow%20Project/mlruns/866608606363253306/70710e8371b14bd794b215a3ceb997b7/artifacts
+end_time: 1734640684703
+entry_point_name: ''
+experiment_id: '866608606363253306'
+lifecycle_stage: active
+run_id: 70710e8371b14bd794b215a3ceb997b7
+run_name: chill-dog-554
+run_uuid: 70710e8371b14bd794b215a3ceb997b7
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1734640679305
+status: 3
+tags: []
+user_id: Ahmed Ashraf

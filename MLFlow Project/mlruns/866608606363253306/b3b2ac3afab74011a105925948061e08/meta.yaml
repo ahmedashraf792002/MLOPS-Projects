@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/Github/MLflow-Projects/MLFlow%20Project/mlruns/866608606363253306/b3b2ac3afab74011a105925948061e08/artifacts
+end_time: 1734640402491
+entry_point_name: ''
+experiment_id: '866608606363253306'
+lifecycle_stage: active
+run_id: b3b2ac3afab74011a105925948061e08
+run_name: serious-donkey-349
+run_uuid: b3b2ac3afab74011a105925948061e08
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1734640392934
+status: 3
+tags: []
+user_id: Ahmed Ashraf

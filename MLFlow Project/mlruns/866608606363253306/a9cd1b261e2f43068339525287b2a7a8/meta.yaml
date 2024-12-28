@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/Github/MLflow-Projects/MLFlow%20Project/mlruns/866608606363253306/a9cd1b261e2f43068339525287b2a7a8/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '866608606363253306'
+lifecycle_stage: active
+run_id: a9cd1b261e2f43068339525287b2a7a8
+run_name: secretive-whale-24
+run_uuid: a9cd1b261e2f43068339525287b2a7a8
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1734642257376
+status: 1
+tags: []
+user_id: Ahmed Ashraf

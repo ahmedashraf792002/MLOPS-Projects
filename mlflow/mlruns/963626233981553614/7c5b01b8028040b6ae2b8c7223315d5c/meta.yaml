@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/Github/MLflow-Projects/mlflow/testing_mlflow1_artifacts/7c5b01b8028040b6ae2b8c7223315d5c/artifacts
+end_time: 1734554816370
+entry_point_name: ''
+experiment_id: '963626233981553614'
+lifecycle_stage: active
+run_id: 7c5b01b8028040b6ae2b8c7223315d5c
+run_name: kindly-chimp-569
+run_uuid: 7c5b01b8028040b6ae2b8c7223315d5c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1734554800929
+status: 3
+tags: []
+user_id: Ahmed Ashraf

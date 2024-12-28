@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/Github/MLflow-Projects/MLFlow%20Project/mlruns/866608606363253306/55123d02ff9b48e39e20847f459e166c/artifacts
+end_time: 1734640770072
+entry_point_name: ''
+experiment_id: '866608606363253306'
+lifecycle_stage: active
+run_id: 55123d02ff9b48e39e20847f459e166c
+run_name: crawling-sponge-452
+run_uuid: 55123d02ff9b48e39e20847f459e166c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1734640763778
+status: 3
+tags: []
+user_id: Ahmed Ashraf

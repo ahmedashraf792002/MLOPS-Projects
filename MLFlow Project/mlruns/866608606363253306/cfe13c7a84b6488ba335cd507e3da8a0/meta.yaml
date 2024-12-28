@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/Github/MLflow-Projects/MLFlow%20Project/mlruns/866608606363253306/cfe13c7a84b6488ba335cd507e3da8a0/artifacts
+end_time: 1734640520204
+entry_point_name: ''
+experiment_id: '866608606363253306'
+lifecycle_stage: active
+run_id: cfe13c7a84b6488ba335cd507e3da8a0
+run_name: bright-hound-276
+run_uuid: cfe13c7a84b6488ba335cd507e3da8a0
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1734640513042
+status: 3
+tags: []
+user_id: Ahmed Ashraf
