@@ -3,6 +3,9 @@ import numpy as np
 import random
 import matplotlib.pyplot as plt
 import seaborn as sns
+import pickle as pk
+import os
+from PIL import Image
 # Libraries for Machine Learning
 from sklearn.utils.class_weight import compute_class_weight
 from sklearn.model_selection import train_test_split
@@ -14,7 +17,8 @@ from sklearn.metrics import confusion_matrix,classification_report, accuracy_sco
 
 
 ###############Load Data##############
-data = pd.read_csv("Liver_disease_data.csv")
+data_path = os.path.join(os.getcwd(), 'data', 'Liver_disease_data.csv')
+data = pd.read_csv(data_path)
 ######## Correlation ############
 corr = data.corr()
 diag_corr = corr['Diagnosis'].drop('Diagnosis')
@@ -46,6 +50,8 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20, random
 ## Clear metrics.txt file at the beginning
 with open('metrics.txt', 'w') as f:
     pass
+confusion_matrix_paths = []
+roc_curve_paths = []
 def train_and_evaluate_model(model, model_name, X_train, y_train, X_test, y_test):
     # Train the model
     model.fit(X_train, y_train)
@@ -73,8 +79,9 @@ def train_and_evaluate_model(model, model_name, X_train, y_train, X_test, y_test
     plt.ylabel('True Positive Rate')
     plt.title(f'ROC Curve for {model_name}')
     plt.legend(loc='lower right')
-    plt.savefig(f'{model_name}-Roc Curve.png', bbox_inches='tight', dpi=300)
+    plt.savefig(f'{model_name}_Roc_Curve.png', bbox_inches='tight', dpi=300)
     plt.close()
+    roc_curve_paths.append(f'./{model_name}_Roc_Curve.png')
     # Confusion matrix and classification report
     cm = confusion_matrix(y_test, y_test_pred)
     # Plot confusion matrix as a heatmap
@@ -83,8 +90,9 @@ def train_and_evaluate_model(model, model_name, X_train, y_train, X_test, y_test
     plt.xlabel('Predicted')
     plt.ylabel('Actual')
     plt.title(f'Confusion Matrix for {model_name}')
-    plt.savefig(f'Confusion Matrix for {model_name}.png', bbox_inches='tight', dpi=300)
+    plt.savefig(f'Confusion_Matrix_for_{model_name}.png', bbox_inches='tight', dpi=300)
     plt.close()
+    confusion_matrix_paths.append(f'./Confusion_Matrix_for_{model_name}.png')
     # Print the classification report and confusion matrix
     classification_report_str = classification_report(y_test, y_test_pred, target_names=['NO', 'YES'])
     # Print evaluation metrics
@@ -101,8 +109,48 @@ def train_and_evaluate_model(model, model_name, X_train, y_train, X_test, y_test
         f.write(f"{model_name} - Confusion Matrix:\n {cm} \n")
         f.write(f"{model_name} - Classification Report:\n {classification_report_str} \n")
         f.write('----'*10 + '\n')
+    os.makedirs(os.path.join(os.getcwd(), 'models'), exist_ok=True)
+    # Save the model
+    pk.dump(model, open(os.path.join(os.getcwd(), 'models', f'{model_name}.pkl'), 'wb'))
         
-parameters = {'max_depth': None, 'min_samples_split': 5, 'n_estimators': 200}
+parameters = {'learning_rate': 0.05, 'max_depth': 3, 'n_estimators': 200, 'subsample': 0.8}
+parameters["class_weight"] = class_weight_dict
 
-train_and_evaluate_model(RandomForestClassifier(**parameters,random_state=42), 'RandomForest-without-Class_Weight', X_train, y_train, X_test, y_test)
-train_and_evaluate_model(RandomForestClassifier(**parameters,class_weight=class_weight_dict,random_state=42), 'RandomForest-with-Class_Weight', X_train, y_train, X_test, y_test)
+train_and_evaluate_model(XGBClassifier(**parameters,random_state=42), 'XGBClassifier without Class-Weight', X_train, y_train, X_test, y_test)
+train_and_evaluate_model(XGBClassifier(**parameters,random_state=42), 'XGBClassifier with Class-Weight', X_train, y_train, X_test, y_test)
+
+## Load and plot each confusion matrix
+plt.figure(figsize=(15, 5))  # Adjust figure size as needed
+for i, path in enumerate(confusion_matrix_paths, 1):
+    img = Image.open(path)
+    plt.subplot(1, len(confusion_matrix_paths), i)
+    plt.imshow(img)
+    plt.axis('off')  # Disable axis for cleaner visualization
+
+clf_name = "XGB Classifier Model"
+## Save combined plot locally
+plt.suptitle(clf_name, fontsize=16)
+plt.tight_layout(rect=[0, 0.03, 1, 0.95])
+plt.savefig(f'conf_matrix.png', bbox_inches='tight', dpi=300)
+
+## Delete old image files
+for path in confusion_matrix_paths:
+    os.remove(path)
+
+
+## Load and plot each roc curve
+plt.figure(figsize=(15, 5))  # Adjust figure size as needed
+for i, path in enumerate(roc_curve_paths, 1):
+    img = Image.open(path)
+    plt.subplot(1, len(roc_curve_paths), i)
+    plt.imshow(img)
+    plt.axis('off')  # Disable axis for cleaner visualization
+
+## Save combined plot locally
+plt.suptitle(clf_name, fontsize=16)
+plt.tight_layout(rect=[0, 0.03, 1, 0.95])
+plt.savefig(f'roc_curve.png', bbox_inches='tight', dpi=300)
+
+## Delete old image files
+for path in roc_curve_paths:
+    os.remove(path)

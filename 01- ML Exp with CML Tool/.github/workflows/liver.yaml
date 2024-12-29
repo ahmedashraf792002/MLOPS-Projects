@@ -1,0 +1,35 @@
+name: ML-for-Detecting-and-Diagnosing-Liver-Disease
+on: [push]
+permissions: write-all
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+           node-version: '16'
+      - uses: actions/setup-python@v4
+        with:
+           python-version: '3.x'
+      - uses: iterative/setup-cml@v1
+      - name: Train model
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          python main.py
+      - name: Write CML report
+        env:
+          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "## Metrics" > report.md
+          awk 'NR%22{print "    " $0}{print ""}' metrics.txt >> report.md
+          echo "## Correlation" >> report.md
+          echo "![](Correlation.png)" >> report.md
+          echo "## Confusion Matrix" >> report.md
+          echo "![](Confusion_Matrix_for_XGBClassifier_without_Class_Weight.png)" >> report.md
+          echo "![](Confusion_Matrix_for_XGBClassifier_with_Class_Weight.png)" >> report.md
+          echo "## Roc Curve" >> report.md
+          echo "![](XGBClassifier_without_Class_Weight_Roc_Curve.png)" >> report.md
+          echo "![](XGBClassifier_with_Class_Weight_Roc_Curve.png)" >> report.md
+          cml comment create report.md
