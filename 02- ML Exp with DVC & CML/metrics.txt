@@ -1,0 +1,46 @@
+XGBClassifier without Class-Weight
+XGBClassifier without Class-Weight - Training Accuracy: 0.957 %
+XGBClassifier without Class-Weight - Test Accuracy: 0.909 %
+XGBClassifier without Class-Weight - Training Precision: 0.956 %
+XGBClassifier without Class-Weight - Test Precision: 0.889 %
+XGBClassifier without Class-Weight - Training Recall: 0.967 %
+XGBClassifier without Class-Weight - Test Recall: 0.944 %
+XGBClassifier without Class-Weight - Training F1 Score: 0.961 %
+XGBClassifier without Class-Weight - Test F1 Score: 0.916 %
+XGBClassifier without Class-Weight - Confusion Matrix:
+ [[141  21]
+ [ 10 168]] 
+XGBClassifier without Class-Weight - Classification Report:
+               precision    recall  f1-score   support
+
+          NO       0.93      0.87      0.90       162
+         YES       0.89      0.94      0.92       178
+
+    accuracy                           0.91       340
+   macro avg       0.91      0.91      0.91       340
+weighted avg       0.91      0.91      0.91       340
+ 
+----------------------------------------
+XGBClassifier with Class-Weight
+XGBClassifier with Class-Weight - Training Accuracy: 0.957 %
+XGBClassifier with Class-Weight - Test Accuracy: 0.909 %
+XGBClassifier with Class-Weight - Training Precision: 0.956 %
+XGBClassifier with Class-Weight - Test Precision: 0.889 %
+XGBClassifier with Class-Weight - Training Recall: 0.967 %
+XGBClassifier with Class-Weight - Test Recall: 0.944 %
+XGBClassifier with Class-Weight - Training F1 Score: 0.961 %
+XGBClassifier with Class-Weight - Test F1 Score: 0.916 %
+XGBClassifier with Class-Weight - Confusion Matrix:
+ [[141  21]
+ [ 10 168]] 
+XGBClassifier with Class-Weight - Classification Report:
+               precision    recall  f1-score   support
+
+          NO       0.93      0.87      0.90       162
+         YES       0.89      0.94      0.92       178
+
+    accuracy                           0.91       340
+   macro avg       0.91      0.91      0.91       340
+weighted avg       0.91      0.91      0.91       340
+ 
+----------------------------------------
